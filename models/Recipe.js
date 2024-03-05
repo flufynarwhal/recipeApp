@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const PostSchema = new mongoose.Schema({
-  title: {
+const RecipeSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
   },
@@ -13,9 +13,13 @@ const PostSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  caption: {
+  Ingredients: {
     type: String,
-    required: true,
+    required:[true, 'Please provide this data']
+  },
+  Directions: {
+    type: String,
+    required:[true, 'Please provide this data']
   },
   likes: {
     type: Number,
@@ -31,4 +35,4 @@ const PostSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model("Recipe", RecipeSchema);
